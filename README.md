@@ -55,7 +55,7 @@ This Claude Code sub-agent provides comprehensive knowledge of:
 1. **Integrate with Your MCP Project**:
    ```bash
    # Clone and integrate into your MCP development project
-   git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
+   git clone https://github.com//gensecaihq/MCP-Developer-SubAgent.git
    cp -r MCP-Developer-SubAgent/.claude ./your-mcp-project/
    
    # Auto-activates for MCP development with repository verification
