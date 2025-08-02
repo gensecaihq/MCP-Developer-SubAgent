@@ -1,0 +1,75 @@
+{
+  "agents": {
+    "mcp-enterprise-developer": {
+      "path": ".claude/agents/mcp-enterprise-developer.md",
+      "description": "Enterprise MCP developer specialist",
+      "auto_activate_patterns": [
+        "**/mcp_server.py",
+        "**/fastmcp_*.py",
+        "**/*mcp*.py"
+      ],
+      "preferred_for": [
+        "mcp server development",
+        "general mcp guidance",
+        "architecture design"
+      ]
+    },
+    "mcp-protocol-expert": {
+      "path": ".claude/agents/core/mcp-protocol-expert.md",
+      "description": "MCP protocol specification specialist",
+      "preferred_for": [
+        "mcp protocol details",
+        "specification questions",
+        "protocol debugging",
+        "transport implementations"
+      ]
+    },
+    "fastmcp-specialist": {
+      "path": ".claude/agents/core/fastmcp-specialist.md",
+      "description": "FastMCP framework implementation expert",
+      "auto_activate_patterns": [
+        "**/fastmcp_*.py",
+        "**/*fastmcp*.py"
+      ],
+      "preferred_for": [
+        "fastmcp implementation",
+        "python mcp servers",
+        "decorators and typing"
+      ]
+    },
+    "enterprise-integration": {
+      "path": ".claude/agents/core/enterprise-integration.md",
+      "description": "Enterprise deployment and security specialist",
+      "preferred_for": [
+        "enterprise deployment",
+        "security architecture",
+        "production operations",
+        "compliance requirements"
+      ]
+    }
+  },
+  "project_settings": {
+    "mcp_development": {
+      "default_agent": "mcp-enterprise-developer",
+      "agent_delegation": true,
+      "auto_suggestions": true,
+      "verification_mode": "strict",
+      "accuracy_warnings": true,
+      "repository_verification": true
+    },
+    "knowledge_sources": {
+      "fastmcp_repo": "https://github.com/jlowin/fastmcp",
+      "mcp_protocol_repo": "https://github.com/modelcontextprotocol",
+      "mcp_specification": "https://modelcontextprotocol.io/",
+      "verification_required": true,
+      "academic_rigor": true
+    },
+    "error_handling": {
+      "fallback_behaviors": true,
+      "graceful_degradation": true,
+      "unknown_api_warnings": true,
+      "specification_verification": true,
+      "repository_cross_reference": true
+    }
+  }
+}

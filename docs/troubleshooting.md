@@ -1,161 +1,85 @@
-# MCP Troubleshooting Guide
+# Academic-Level MCP Troubleshooting Guide
 
-## Common Issues
+*Repository-informed troubleshooting methodologies for MCP protocol and FastMCP framework issues with academic rigor and theoretical foundation.*
 
-### 1. Server Won't Start
+## Repository-Centric Diagnostic Framework
 
-**Error:** `Address already in use`
+This guide provides systematic approaches to MCP troubleshooting using patterns from:
+- **[FastMCP Repository Issues](https://github.com/jlowin/fastmcp/issues)** - Community-reported problems and solutions
+- **[MCP Protocol Repository](https://github.com/modelcontextprotocol)** - Protocol compliance and implementation patterns
+- **[Official Examples](https://github.com/modelcontextprotocol/examples)** - Reference implementations for debugging
+
+## Academic Debugging Intelligence
+
+The **MCP Developer Claude Code sub-agent** provides:
+- **Repository-First Diagnosis**: Cross-reference issues against official repositories
+- **Transport-Specific Analysis**: Deep understanding of stdio, SSE, and HTTP debugging
+- **Protocol Compliance**: Academic-level JSON-RPC validation and capability negotiation
+- **Authentication Debugging**: OAuth flows, JWT validation, and security boundary analysis
+
+## Quick Enterprise Issues Reference
+
+### OAuth 2.1 Authentication Failures
 ```bash
-# Find process using the port
-lsof -i :8080
-# Kill the process
-kill -9 <PID>
+# Use the Claude Code sub-agent for detailed diagnosis
+claude-code --agent subagents/mcp-developer.md "Debug OAuth 2.1 authentication issues"
 ```
 
-**Error:** `Module not found`
+### Structured Output Schema Validation
 ```bash
-# Ensure dependencies are installed
-pip install fastmcp
-pip install -r requirements.txt
+# Get comprehensive schema debugging
+claude-code --agent subagents/mcp-developer.md "Validate MCP structured output schemas"
 ```
 
-### 2. Client Connection Failures
-
-**Check server is running:**
+### Multi-Client Coordination Problems
 ```bash
-# Test with netcat
-nc -zv localhost 8080
-
-# Test with curl (for HTTP transport)
-curl http://localhost:8080/health
+# Analyze namespace isolation and client conflicts
+claude-code --agent subagents/mcp-developer.md "Troubleshoot multi-client MCP coordination"
 ```
 
-**Verify transport configuration:**
-```python
-# For stdio transport
-mcp = FastMCP("server", transport="stdio")
-
-# For HTTP transport
-mcp = FastMCP("server", transport="http", host="0.0.0.0", port=8080)
+### Production Performance Issues
+```bash
+# Enterprise performance analysis and optimization
+claude-code --agent subagents/mcp-developer.md "Analyze MCP server performance bottlenecks"
 ```
 
-### 3. Tool Execution Errors
+## Enterprise Monitoring Integration
 
-**Debug with detailed tracing:**
-```python
-@mcp.tool()
-async def debug_tool(param: str) -> Dict[str, Any]:
-    import traceback
-    try:
-        # Tool logic here
-        result = await process(param)
-        return {"result": result}
-    except Exception as e:
-        traceback.print_exc()
-        return {"error": str(e), "traceback": traceback.format_exc()}
-```
+### OpenTelemetry Setup
+The enterprise MCP developer agent provides complete OpenTelemetry integration patterns for:
+- Distributed tracing across MCP components
+- Custom metrics for protocol performance
+- Structured logging for audit compliance
 
-### 4. Performance Issues
+### Security Event Correlation
+Enterprise-grade security monitoring with:
+- OAuth 2.1 authentication flow validation
+- Resource Indicators compliance checking
+- Audit trail generation and analysis
 
-**Profile async operations:**
-```python
-import asyncio
-import time
+## Getting Enterprise Support
 
-async def measure_performance():
-    tasks = []
-    start = time.time()
-    
-    for i in range(100):
-        tasks.append(mcp.tools["my_tool"](f"param_{i}"))
-    
-    results = await asyncio.gather(*tasks)
-    duration = time.time() - start
-    
-    print(f"Processed {len(results)} requests in {duration:.2f}s")
-    print(f"Average: {duration/len(results):.3f}s per request")
-```
+### Using the Claude Code Sub-Agent
+The most effective way to troubleshoot enterprise MCP issues is through the specialized sub-agent:
 
-### 5. Memory Leaks
+1. **Interactive Mode**:
+   ```bash
+   claude-code
+   > /agent mcp-enterprise-developer
+   > "I'm experiencing [specific issue description]"
+   ```
 
-**Monitor memory usage:**
-```python
-import psutil
-import os
+2. **Direct Problem Resolution**:
+   ```bash
+   claude-code --agent subagents/mcp-developer.md "Solve [specific enterprise MCP problem]"
+   ```
 
-@mcp.tool()
-async def memory_check() -> Dict[str, Any]:
-    process = psutil.Process(os.getpid())
-    return {
-        "memory_mb": process.memory_info().rss / 1024 / 1024,
-        "cpu_percent": process.cpu_percent()
-    }
-```
+### Enterprise Resources
+- **MCP Specification 2025-06-18**: Latest protocol features and security
+- **FastMCP 2.0 Documentation**: Enterprise deployment patterns
+- **OAuth 2.1 & RFC 8707**: Security standards and compliance
+- **OpenTelemetry**: Production observability and monitoring
 
-## Diagnostic Tools
+---
 
-### 1. Protocol Logger
-```python
-class ProtocolLogger:
-    def __init__(self, mcp_server):
-        self.server = mcp_server
-        self.messages = []
-    
-    async def log_message(self, direction: str, message: Dict):
-        entry = {
-            "timestamp": datetime.now().isoformat(),
-            "direction": direction,
-            "message": message
-        }
-        self.messages.append(entry)
-        
-        if len(self.messages) > 1000:
-            # Write to file and clear
-            with open("protocol.log", "a") as f:
-                for msg in self.messages:
-                    f.write(json.dumps(msg) + "\n")
-            self.messages.clear()
-```
-
-### 2. Health Check Endpoint
-```python
-@mcp.tool()
-async def health_check() -> Dict[str, Any]:
-    checks = {
-        "server": "ok",
-        "database": "unknown",
-        "cache": "unknown"
-    }
-    
-    # Check database
-    try:
-        await db.execute("SELECT 1")
-        checks["database"] = "ok"
-    except:
-        checks["database"] = "error"
-    
-    # Check cache
-    try:
-        await cache.ping()
-        checks["cache"] = "ok"
-    except:
-        checks["cache"] = "error"
-    
-    return {
-        "status": "healthy" if all(v == "ok" for v in checks.values()) else "unhealthy",
-        "checks": checks,
-        "timestamp": datetime.now().isoformat()
-    }
-```
-
-## Getting Help
-
-1. **Check logs first** - Most issues are visible in debug logs
-2. **Minimal reproduction** - Create smallest example that shows the issue
-3. **Protocol trace** - Include request/response messages
-4. **Environment details** - Python version, FastMCP version, OS
-
-### Community Resources
-- MCP Discord Server
-- GitHub Issues
-- Stack Overflow tag: `mcp-protocol`
+*For detailed troubleshooting, debugging workflows, and enterprise-specific solutions, leverage the Enterprise MCP Developer Claude Code sub-agent for comprehensive assistance.*

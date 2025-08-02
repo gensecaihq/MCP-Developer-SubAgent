@@ -1,38 +1,75 @@
-# MCP Development Best Practices
+# Repository-Verified MCP Development Best Practices
 
-## 1. Tool Design
+*Academic-level best practices derived from official FastMCP and MCP protocol repositories for building production-ready MCP servers.*
 
-### Input Validation
-Always validate tool inputs:
+## Academic Foundation & Repository Sources
+
+This guide synthesizes patterns from:
+- **[FastMCP Repository](https://github.com/jlowin/fastmcp)** - Latest implementation patterns and advanced examples
+- **[MCP Protocol Repository](https://github.com/modelcontextprotocol)** - Official specification and ecosystem patterns
+- **[MCP Specification](https://modelcontextprotocol.io/)** - Transport and authentication protocols
+
+## Repository-Verified Guidelines
+
+All patterns in this guide are cross-referenced against official repository examples and maintain academic rigor in implementation approach.
+
+## 1. MCP Tool Design
+
+### Input Validation with FastMCP
+Always validate MCP tool inputs:
 ```python
-@mcp.tool()
-async def safe_tool(value: int) -> Dict[str, Any]:
+from fastmcp import FastMCP
+from pydantic import BaseModel, Field
+
+mcp = FastMCP("my-server")
+
+class ToolResponse(BaseModel):
+    result: int = Field(description="Processed result")
+    
+@mcp.tool
+def safe_tool(value: int) -> ToolResponse:
+    """Safe tool with proper validation"""
     if value < 0:
         raise ValueError("Value must be non-negative")
-    return {"result": value * 2}
+    return ToolResponse(result=value * 2)
 ```
 
-### Clear Documentation
+### Clear MCP Tool Documentation
 ```python
-@mcp.tool()
-async def well_documented_tool(
+from typing import List
+
+class SearchResult(BaseModel):
+    id: str = Field(description="Item ID")
+    name: str = Field(description="Item name")
+    score: float = Field(description="Relevance score")
+
+@mcp.tool
+def search_items(
     query: str,
     limit: int = 10
-) -> List[Dict[str, Any]]:
+) -> List[SearchResult]:
     """
     Search for items matching the query.
     
+    This MCP tool searches the item database and returns structured results.
+    
     Args:
-        query: Search query string (min 3 characters)
+        query: Search query string (minimum 3 characters)
         limit: Maximum results to return (1-100)
         
     Returns:
-        List of matching items with id and name
+        List of matching items with structured data
         
     Raises:
         ValueError: If query is too short or limit out of range
     """
-    # Implementation
+    if len(query) < 3:
+        raise ValueError("Query must be at least 3 characters")
+    if not 1 <= limit <= 100:
+        raise ValueError("Limit must be between 1 and 100")
+    
+    # MCP tool implementation
+    return [SearchResult(id="1", name="example", score=0.95)]
 ```
 
 ## 2. Error Handling
