@@ -84,7 +84,7 @@ mcp-developer-subagent/
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/mcp-developer-subagent.git
+   git clone https://github.com/gensecaihq/mcp-developer-subagent.git
    cd mcp-developer-subagent
    ```
 
