@@ -137,7 +137,7 @@ MCP-Developer-SubAgent/
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
+   git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
    cd MCP-Developer-SubAgent
    ```
 
