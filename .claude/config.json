@@ -1,61 +1,146 @@
 {
   "agents": {
-    "mcp-enterprise-developer": {
-      "path": ".claude/agents/mcp-enterprise-developer.md",
-      "description": "Enterprise MCP developer specialist",
+    "mcp-orchestrator": {
+      "path": ".claude/agents/mcp-orchestrator.md",
+      "description": "Central coordinator for MCP development workflows with quality gates and specialist delegation",
       "auto_activate_patterns": [
         "**/mcp_server.py",
         "**/fastmcp_*.py",
-        "**/*mcp*.py"
+        "**/*mcp*.py",
+        "**/server.py",
+        "**/transport_*.py",
+        "**/mcp/**/*.py"
       ],
       "preferred_for": [
-        "mcp server development",
-        "general mcp guidance",
-        "architecture design"
+        "mcp development coordination",
+        "quality gate management",
+        "workflow orchestration",
+        "architecture planning"
+      ]
+    },
+    "mcp-enterprise-developer": {
+      "path": ".claude/agents/mcp-enterprise-developer.md",
+      "description": "Legacy enterprise MCP developer - use mcp-orchestrator for new projects",
+      "preferred_for": [
+        "legacy mcp support"
       ]
     },
     "mcp-protocol-expert": {
-      "path": ".claude/agents/core/mcp-protocol-expert.md",
-      "description": "MCP protocol specification specialist",
+      "path": ".claude/agents/specialists/mcp-protocol-expert.md",
+      "description": "Deep MCP protocol specification expertise for JSON-RPC, transport layers, and capability negotiation",
+      "auto_activate_patterns": [
+        "**/protocol*.py",
+        "**/jsonrpc*.py",
+        "**/transport*.py",
+        "**/capability*.py"
+      ],
       "preferred_for": [
         "mcp protocol details",
-        "specification questions",
-        "protocol debugging",
-        "transport implementations"
+        "json-rpc implementation",
+        "transport layer issues",
+        "capability negotiation",
+        "protocol debugging"
       ]
     },
     "fastmcp-specialist": {
-      "path": ".claude/agents/core/fastmcp-specialist.md",
-      "description": "FastMCP framework implementation expert",
+      "path": ".claude/agents/specialists/fastmcp-specialist.md",
+      "description": "FastMCP framework implementation expert for Python MCP servers, decorators, and Pydantic integration",
       "auto_activate_patterns": [
         "**/fastmcp_*.py",
-        "**/*fastmcp*.py"
+        "**/*fastmcp*.py",
+        "**/@mcp*.py",
+        "**/requirements.txt"
       ],
       "preferred_for": [
         "fastmcp implementation",
         "python mcp servers",
-        "decorators and typing"
+        "decorators and typing",
+        "pydantic integration",
+        "async patterns"
       ]
     },
-    "enterprise-integration": {
-      "path": ".claude/agents/core/enterprise-integration.md",
-      "description": "Enterprise deployment and security specialist",
+    "mcp-security-auditor": {
+      "path": ".claude/agents/specialists/mcp-security-auditor.md",
+      "description": "Enterprise MCP security specialist for OAuth 2.1, input validation, and security boundary analysis",
+      "auto_activate_patterns": [
+        "**/auth*.py",
+        "**/security*.py",
+        "**/oauth*.py",
+        "**/jwt*.py"
+      ],
+      "preferred_for": [
+        "oauth implementation",
+        "security auditing",
+        "input validation",
+        "authentication patterns",
+        "authorization design"
+      ]
+    },
+    "mcp-performance-optimizer": {
+      "path": ".claude/agents/specialists/mcp-performance-optimizer.md",
+      "description": "MCP server performance optimization specialist for async patterns, connection pooling, and monitoring",
+      "auto_activate_patterns": [
+        "**/performance*.py",
+        "**/async*.py",
+        "**/pool*.py",
+        "**/cache*.py",
+        "**/monitoring*.py"
+      ],
+      "preferred_for": [
+        "performance optimization",
+        "async patterns",
+        "connection pooling",
+        "caching strategies",
+        "monitoring integration"
+      ]
+    },
+    "mcp-deployment-specialist": {
+      "path": ".claude/agents/specialists/mcp-deployment-specialist.md",
+      "description": "Enterprise MCP deployment and infrastructure specialist",
+      "auto_activate_patterns": [
+        "**/docker*.py",
+        "**/k8s*.py",
+        "**/deployment*.py",
+        "**/infrastructure*.py",
+        "Dockerfile",
+        "docker-compose.yml",
+        "**/k8s/**/*.yaml"
+      ],
       "preferred_for": [
         "enterprise deployment",
-        "security architecture",
+        "container orchestration",
+        "infrastructure setup",
         "production operations",
-        "compliance requirements"
+        "scaling strategies"
+      ]
+    },
+    "mcp-debugger": {
+      "path": ".claude/agents/specialists/mcp-debugger.md",
+      "description": "MCP troubleshooting and debugging specialist",
+      "auto_activate_patterns": [
+        "**/debug*.py",
+        "**/test*.py",
+        "**/logs/*.log",
+        "**/troubleshoot*.py"
+      ],
+      "preferred_for": [
+        "debugging mcp issues",
+        "troubleshooting errors",
+        "diagnostic analysis",
+        "testing strategies"
       ]
     }
   },
   "project_settings": {
     "mcp_development": {
-      "default_agent": "mcp-enterprise-developer",
+      "default_agent": "mcp-orchestrator",
       "agent_delegation": true,
       "auto_suggestions": true,
       "verification_mode": "strict",
       "accuracy_warnings": true,
-      "repository_verification": true
+      "repository_verification": true,
+      "quality_gates_enabled": true,
+      "auto_activation_enabled": true
     },
     "knowledge_sources": {
       "fastmcp_repo": "https://github.com/jlowin/fastmcp",
@@ -70,6 +155,22 @@
       "unknown_api_warnings": true,
       "specification_verification": true,
       "repository_cross_reference": true
+    },
+    "quality_gates": {
+      "planning_gate": true,
+      "protocol_gate": true,
+      "security_gate": true,
+      "implementation_gate": true,
+      "testing_gate": true,
+      "performance_gate": true,
+      "documentation_gate": true
+    },
+    "context_detection": {
+      "mcp_protocol": ["JSON-RPC", "capability", "transport", "stdio", "sse", "http"],
+      "fastmcp": ["@mcp.tool", "@mcp.resource", "@mcp.prompt", "FastMCP", "pydantic"],
+      "enterprise": ["oauth", "jwt", "security", "auth", "enterprise"],
+      "performance": ["async", "await", "pool", "cache", "optimization"],
+      "deployment": ["docker", "kubernetes", "container", "deploy", "production"]
     }
   }
 }

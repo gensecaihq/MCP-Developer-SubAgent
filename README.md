@@ -1,15 +1,18 @@
-# MCP Developer Claude Code Sub-Agent
+# MCP Developer Claude Code Sub-Agent Collection
 
-An academically-rigorous Claude Code sub-agent with deep expertise in Model Context Protocol (MCP) development. This agent maintains constant awareness of the latest developments in official repositories and provides expert-level guidance for building production-ready MCP servers.
+A comprehensive Claude Code sub-agent collection for Model Context Protocol (MCP) development excellence. This collection provides orchestrated specialist agents with deep expertise in MCP protocols, FastMCP implementation, security, performance optimization, and enterprise deployment patterns.
 
-## 🎯 Academic-Level MCP Expertise
+## 🎯 Multi-Agent Architecture
 
-This Claude Code sub-agent provides comprehensive knowledge of:
+This collection implements a **hub-and-spoke orchestration model** with:
 
-- **MCP Protocol Mastery**: Deep understanding of transport layers (stdio, SSE, HTTP), authentication patterns, and protocol state management
-- **FastMCP Framework Excellence**: Advanced decorator systems, server composition, middleware architecture, and production optimization
-- **Repository-Verified Patterns**: Always references latest developments from official repositories
-- **Production Intelligence**: Academic-level understanding of local vs remote MCP, security boundaries, and enterprise deployment
+- **Central Orchestrator**: `mcp-orchestrator` - Coordinates workflows with quality gates and specialist delegation
+- **Protocol Expert**: `mcp-protocol-expert` - JSON-RPC, transport layers, capability negotiation
+- **FastMCP Specialist**: `fastmcp-specialist` - Python implementation, decorators, Pydantic integration
+- **Security Auditor**: `mcp-security-auditor` - OAuth 2.1, input validation, enterprise security
+- **Performance Optimizer**: `mcp-performance-optimizer` - Async patterns, connection pooling, monitoring
+- **Deployment Specialist**: `mcp-deployment-specialist` - Container orchestration, infrastructure automation
+- **Debugger**: `mcp-debugger` - Troubleshooting, diagnostic analysis, systematic debugging
 
 ## 🔬 Repository-Centric Intelligence
 
@@ -50,71 +53,85 @@ This Claude Code sub-agent provides comprehensive knowledge of:
 
 ## 🛠️ Usage with Claude Code
 
-### **Repository-Verified Development Workflow**
+### **Quick Start**
 
-1. **Integrate with Your MCP Project**:
+1. **Clone and Install**:
    ```bash
-   # Clone and integrate into your MCP development project
-   git clone https://github.com//gensecaihq/MCP-Developer-SubAgent.git
-   cp -r MCP-Developer-SubAgent/.claude ./your-mcp-project/
-   
-   # Auto-activates for MCP development with repository verification
-   cd your-mcp-project && claude-code
+   git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
+   cd MCP-Developer-SubAgent
+   cp -r .claude /path/to/your/mcp-project/
    ```
 
-2. **Academic-Level Agent Access**:
+2. **Auto-Activation**:
    ```bash
-   # Main MCP developer with repository-first approach
-   claude-code --agent subagents/mcp-developer.md "Design a FastMCP server using latest repository patterns"
-   
-   # Specialized domain experts
-   > /agent mcp-protocol-expert      # Deep protocol specification knowledge
-   > /agent fastmcp-specialist       # Advanced FastMCP framework expertise
-   > /agent enterprise-integration   # Production deployment intelligence
+   cd /path/to/your/mcp-project
+   claude-code  # Automatically detects MCP files and activates orchestrator
    ```
 
-### **Academic Research Workflow**
+3. **Manual Specialist Invocation**:
+   ```bash
+   # In Claude Code, explicitly request specialists:
+   > Use the fastmcp-specialist to implement Pydantic validation
+   > Use the mcp-security-auditor to review authentication patterns
+   > Use the mcp-performance-optimizer to analyze connection pooling
+   ```
 
-Every interaction follows this rigorous approach:
-1. **Repository Verification**: Check [github.com/jlowin/fastmcp](https://github.com/jlowin/fastmcp) and [github.com/modelcontextprotocol](https://github.com/modelcontextprotocol) for latest patterns
-2. **Protocol Analysis**: Deep dive into transport, authentication, and capability requirements
-3. **Implementation Guidance**: Provide code following verified repository examples
-4. **Testing Strategy**: Protocol compliance and client compatibility validation
-5. **Production Patterns**: Enterprise deployment with monitoring and observability
+### **Quality-Gated Development Workflow**
 
-### **Intelligent Auto-Activation**
-- **MCP Files**: `**/mcp_server.py`, `**/*mcp*.py`, `**/fastmcp_*.py`
-- **Transport Detection**: Automatically suggests appropriate agent based on file patterns
-- **Repository Awareness**: Cross-references latest developments during every interaction
+The orchestrator enforces these quality gates:
+1. **Planning Gate**: Requirements analysis, architecture design, transport selection
+2. **Protocol Gate**: MCP specification compliance, JSON-RPC validation
+3. **Security Gate**: Authentication patterns, input validation, security boundaries
+4. **Implementation Gate**: FastMCP patterns, type safety, async optimization
+5. **Testing Gate**: Protocol compliance testing, integration validation
+6. **Performance Gate**: Connection pooling, monitoring, scalability
+7. **Documentation Gate**: API documentation, deployment guides, troubleshooting
 
-## 📁 Optimized Repository Structure
+### **Intelligent Auto-Activation Patterns**
+- **Protocol Files**: `**/protocol*.py`, `**/jsonrpc*.py`, `**/transport*.py`
+- **FastMCP Files**: `**/fastmcp_*.py`, `**/@mcp*.py`, `**/requirements.txt`
+- **Security Files**: `**/auth*.py`, `**/oauth*.py`, `**/jwt*.py`
+- **Performance Files**: `**/async*.py`, `**/pool*.py`, `**/cache*.py`
+- **Deployment Files**: `Dockerfile`, `docker-compose.yml`, `**/k8s/**/*.yaml`
+
+## 📁 Multi-Agent Collection Structure
 
 ```
 MCP-Developer-SubAgent/
-├── README.md                                    # Complete overview and academic standards
+├── README.md                                    # Complete overview and usage guide
 ├── LICENSE                                      # MIT License
-├── .gitignore                                  # Repository optimization
-├── .claude/                                    # Intelligent Claude Code configuration
-│   ├── config.json                            # Repository-centric agent configuration
+├── .claude/                                    # Claude Code configuration
+│   ├── config.json                            # Multi-agent orchestration setup
 │   ├── settings.local.json                    # Repository access permissions
 │   └── agents/
-│       ├── mcp-enterprise-developer.md        # Main MCP development agent
-│       └── core/                              # Academic specialist agents
-│           ├── mcp-protocol-expert.md             # Deep protocol specification expertise
-│           ├── fastmcp-specialist.md              # Advanced FastMCP framework knowledge
-│           └── enterprise-integration.md          # Production deployment intelligence
-├── subagents/                                 # Core sub-agent with academic rigor
-│   └── mcp-developer.md                      # Repository-verified MCP development expert
-└── docs/                                      # Academic-level MCP documentation
-    ├── best-practices.md                     # Repository-verified development patterns
-    └── troubleshooting.md                    # Academic debugging methodologies
+│       ├── mcp-orchestrator.md                 # Central workflow coordinator
+│       └── specialists/                        # Specialized domain experts
+│           ├── mcp-protocol-expert.md              # JSON-RPC, transport, capabilities
+│           ├── fastmcp-specialist.md               # Python FastMCP implementation
+│           ├── mcp-security-auditor.md             # OAuth, validation, security
+│           ├── mcp-performance-optimizer.md        # Async, caching, monitoring
+│           ├── mcp-deployment-specialist.md        # Containers, infrastructure
+│           └── mcp-debugger.md                     # Troubleshooting, diagnostics
+├── examples/                                   # Working MCP implementations
+│   ├── minimal-mcp-server/                    # Basic FastMCP patterns
+│   ├── enterprise-auth-server/                # OAuth 2.1 security patterns
+│   ├── performance-optimized/                 # High-performance implementations
+│   ├── multi-transport-server/                # stdio/HTTP/SSE support
+│   └── testing-framework/                     # Compliance validation tools
+├── subagents/                                 # Legacy compatibility
+│   └── mcp-developer.md                      # Original monolithic agent
+└── docs/                                      # Documentation and guides
+    ├── best-practices.md                     # Repository-verified patterns
+    └── troubleshooting.md                    # Systematic debugging guides
 ```
 
-### **Repository Optimization Features**
-- **Clean Architecture**: Modular agent system with clear specialization boundaries
-- **Academic Standards**: Repository verification built into every component
-- **Intelligent Configuration**: Auto-activation with transport detection
-- **Documentation Excellence**: Cross-referenced with official repositories
+### **Advanced Features**
+- **Orchestrated Workflows**: Quality-gated development with systematic delegation
+- **Repository Verification**: Continuous cross-referencing with official sources
+- **Auto-Activation Intelligence**: Context-aware specialist selection
+- **Working Examples**: Production-ready MCP server implementations
+- **Compliance Testing**: Automated protocol validation framework
+- **Performance Benchmarking**: Load testing and optimization tools
 
 ## 🎯 Academic-Level MCP Development Applications
 
@@ -133,38 +150,55 @@ MCP-Developer-SubAgent/
 - **Monitoring Integration**: OpenTelemetry patterns, Prometheus metrics, structured logging
 - **Client Compatibility**: Multi-client support with version-aware feature detection
 
-## 🔧 Getting Started with MCP Development
+## 🚀 Quick Start Guide
 
-1. **Clone this repository**:
-   ```bash
-   git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
-   cd MCP-Developer-SubAgent
-   ```
+### **1. Installation**
+```bash
+git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
+cd MCP-Developer-SubAgent
 
-2. **Copy to your MCP project**:
-   ```bash
-   # Copy the Claude Code configuration to your MCP server project
-   cp -r .claude /path/to/your/mcp-server-project/
-   ```
+# Copy to your MCP project
+cp -r .claude /path/to/your/mcp-project/
+cp -r examples /path/to/your/mcp-project/
+```
 
-3. **Start MCP development with Claude Code**:
-   ```bash
-   cd /path/to/your/mcp-server-project
-   claude-code  # Auto-activates for MCP development files
-   ```
+### **2. Try Working Examples**
+```bash
+# Minimal MCP Server
+cd examples/minimal-mcp-server
+pip install -r requirements.txt
+python server.py
+
+# Enterprise Authentication Server
+cd examples/enterprise-auth-server
+pip install -r requirements.txt
+python server.py
+
+# Test Protocol Compliance
+cd examples/testing-framework
+pip install -r requirements.txt
+python test_mcp_compliance.py --server-command "python ../minimal-mcp-server/server.py"
+```
+
+### **3. Development with Claude Code**
+```bash
+cd /path/to/your/mcp-project
+claude-code  # Auto-activates orchestrator for MCP development
+```
 
 ### Example MCP Development Session
 ```bash
 # Start Claude Code in your MCP project
 claude-code
 
-# Agent auto-activates for *.py files with MCP patterns
-# Or explicitly use the MCP developer agent:
-> /agent mcp-enterprise-developer
+# Orchestrator auto-activates for MCP file patterns
+# Request specific specialists:
+> Use the fastmcp-specialist to create a tool with structured outputs
+> Use the mcp-protocol-expert to explain transport options
+> Use the mcp-security-auditor to implement OAuth 2.1 authentication
 
-# Get specialized help:
-> /agent fastmcp-specialist "How do I create a FastMCP tool with structured outputs?"
-> /agent mcp-protocol-expert "What are the MCP transport options?"
+# Run comprehensive testing:
+python examples/testing-framework/test_mcp_compliance.py --server-command "python server.py"
 ```
 
 ## 📚 Academic-Level MCP Knowledge Sources
@@ -184,28 +218,49 @@ claude-code
 - **[FastMCP Examples](https://github.com/jlowin/fastmcp/tree/main/examples)** - Advanced decorator patterns and server composition
 - **[Protocol Implementations](https://github.com/modelcontextprotocol/examples)** - Transport layer examples and authentication patterns
 
-## 🔬 Contributing to Academic Excellence
+## 🏆 Features & Capabilities
 
-This repository maintains academic standards for MCP development. Contributions welcomed for:
+### **Working Examples**
+- ✅ **Minimal MCP Server**: Basic FastMCP patterns with type safety
+- ✅ **Enterprise Auth Server**: OAuth 2.1 with Resource Indicators (RFC 8707)
+- ✅ **Performance Optimized**: Connection pooling, caching, monitoring
+- ✅ **Multi-Transport**: stdio, HTTP, SSE support
+- ✅ **Testing Framework**: Automated protocol compliance validation
 
-- **Repository Pattern Analysis**: Deep analysis of latest FastMCP and MCP protocol developments
-- **Academic Documentation**: Theoretical foundations with practical implementation guidance
-- **Advanced Debugging**: Sophisticated troubleshooting methodologies with transport-specific approaches
-- **Protocol Research**: Academic exploration of authentication patterns, security boundaries, and performance optimization
-- **Enterprise Architecture**: Production deployment patterns with academic rigor and repository verification
+### **Specialist Expertise**
+- 🔧 **Protocol Implementation**: JSON-RPC 2.0, capability negotiation, transport layers
+- 🐍 **FastMCP Mastery**: Decorators, Pydantic integration, async optimization
+- 🔒 **Enterprise Security**: OAuth 2.1, JWT validation, input sanitization
+- ⚡ **Performance Engineering**: Connection pools, caching strategies, monitoring
+- 🚀 **DevOps Integration**: Docker, Kubernetes, CI/CD, infrastructure automation
+- 🐛 **Advanced Debugging**: Transport diagnostics, protocol compliance checking
+
+### **Quality Assurance**
+- 📋 **Quality Gates**: 7-stage validation process for production readiness
+- 🧪 **Automated Testing**: Protocol compliance, performance benchmarks, security validation
+- 📊 **Compliance Scoring**: Quantitative assessment of MCP implementation quality
+- 📚 **Repository Verification**: Continuous alignment with official MCP/FastMCP sources
+
+## 🤝 Contributing
+
+Contributions welcome for:
+- Additional specialist agents for emerging MCP patterns
+- Enhanced working examples and use cases
+- Improved testing frameworks and validation tools
+- Documentation and best practice guides
+- Performance optimizations and security enhancements
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🙏 Academic Acknowledgments
+## 🙏 Acknowledgments
 
-- **[Anthropic Team](https://anthropic.com)**: Claude Code framework and sub-agent architecture
-- **[MCP Protocol Team](https://github.com/modelcontextprotocol)**: Model Context Protocol specification and ecosystem leadership
-- **[Joel Lowin & FastMCP Team](https://github.com/jlowin/fastmcp)**: Advanced Python MCP server framework and academic-level implementation patterns
-- **[MCP Community](https://github.com/modelcontextprotocol/servers)**: Open source ecosystem and production server implementations
-- **Academic Contributors**: Researchers and developers advancing MCP protocol understanding and implementation excellence
+- **[Anthropic](https://anthropic.com)**: Claude Code framework and sub-agent architecture
+- **[MCP Protocol Team](https://github.com/modelcontextprotocol)**: Model Context Protocol specification and ecosystem
+- **[FastMCP Team](https://github.com/jlowin/fastmcp)**: Python MCP server framework and implementation patterns
+- **[MCP Community](https://github.com/modelcontextprotocol/servers)**: Open source ecosystem and production implementations
 
 ---
 
-*Repository-centric Claude Code sub-agent with academic-level expertise in Model Context Protocol development. Maintains constant awareness of latest developments from official FastMCP and MCP protocol repositories, providing theoretically-grounded implementation guidance for production-ready MCP servers.*
+*Production-ready Claude Code sub-agent collection for Model Context Protocol development excellence. Orchestrated specialist agents with working examples, automated testing, and enterprise-grade implementation patterns.*
