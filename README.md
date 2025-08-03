@@ -94,7 +94,7 @@ The orchestrator enforces these quality gates:
 - **Performance Files**: `**/async*.py`, `**/pool*.py`, `**/cache*.py`
 - **Deployment Files**: `Dockerfile`, `docker-compose.yml`, `**/k8s/**/*.yaml`
 
-## 📁 Multi-Agent Collection Structure
+## 📁 Clean Multi-Agent Collection Structure
 
 ```
 MCP-Developer-SubAgent/
@@ -102,30 +102,28 @@ MCP-Developer-SubAgent/
 ├── LICENSE                                      # MIT License
 ├── .claude/                                    # Claude Code configuration
 │   ├── config.json                            # Multi-agent orchestration setup
-│   ├── settings.local.json                    # Repository access permissions
-│   └── agents/
-│       ├── mcp-orchestrator.md                 # Central workflow coordinator
-│       └── specialists/                        # Specialized domain experts
-│           ├── mcp-protocol-expert.md              # JSON-RPC, transport, capabilities
-│           ├── fastmcp-specialist.md               # Python FastMCP implementation
-│           ├── mcp-security-auditor.md             # OAuth, validation, security
-│           ├── mcp-performance-optimizer.md        # Async, caching, monitoring
-│           ├── mcp-deployment-specialist.md        # Containers, infrastructure
-│           └── mcp-debugger.md                     # Troubleshooting, diagnostics
+│   └── settings.local.json                    # Repository access permissions
+├── subagents/                                 # All sub-agents in one place
+│   ├── mcp-orchestrator.md                    # Central workflow coordinator
+│   ├── mcp-protocol-expert.md                 # JSON-RPC, transport, capabilities
+│   ├── fastmcp-specialist.md                  # Python FastMCP implementation
+│   ├── mcp-security-auditor.md                # OAuth, validation, security
+│   ├── mcp-performance-optimizer.md           # Async, caching, monitoring
+│   ├── mcp-deployment-specialist.md           # Containers, infrastructure
+│   └── mcp-debugger.md                        # Troubleshooting, diagnostics
 ├── examples/                                   # Working MCP implementations
 │   ├── minimal-mcp-server/                    # Basic FastMCP patterns
 │   ├── enterprise-auth-server/                # OAuth 2.1 security patterns
 │   ├── performance-optimized/                 # High-performance implementations
 │   ├── multi-transport-server/                # stdio/HTTP/SSE support
 │   └── testing-framework/                     # Compliance validation tools
-├── subagents/                                 # Legacy compatibility
-│   └── mcp-developer.md                      # Original monolithic agent
 └── docs/                                      # Documentation and guides
     ├── best-practices.md                     # Repository-verified patterns
     └── troubleshooting.md                    # Systematic debugging guides
 ```
 
 ### **Advanced Features**
+- **Clean Structure**: All sub-agents organized in single `subagents/` directory
 - **Orchestrated Workflows**: Quality-gated development with systematic delegation
 - **Repository Verification**: Continuous cross-referencing with official sources
 - **Auto-Activation Intelligence**: Context-aware specialist selection

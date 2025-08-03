@@ -1,7 +1,7 @@
 {
   "agents": {
     "mcp-orchestrator": {
-      "path": ".claude/agents/mcp-orchestrator.md",
+      "path": "subagents/mcp-orchestrator.md",
       "description": "Central coordinator for MCP development workflows with quality gates and specialist delegation",
       "auto_activate_patterns": [
         "**/mcp_server.py",
@@ -18,15 +18,8 @@
         "architecture planning"
       ]
     },
-    "mcp-enterprise-developer": {
-      "path": ".claude/agents/mcp-enterprise-developer.md",
-      "description": "Legacy enterprise MCP developer - use mcp-orchestrator for new projects",
-      "preferred_for": [
-        "legacy mcp support"
-      ]
-    },
     "mcp-protocol-expert": {
-      "path": ".claude/agents/specialists/mcp-protocol-expert.md",
+      "path": "subagents/mcp-protocol-expert.md",
       "description": "Deep MCP protocol specification expertise for JSON-RPC, transport layers, and capability negotiation",
       "auto_activate_patterns": [
         "**/protocol*.py",
@@ -43,7 +36,7 @@
       ]
     },
     "fastmcp-specialist": {
-      "path": ".claude/agents/specialists/fastmcp-specialist.md",
+      "path": "subagents/fastmcp-specialist.md",
       "description": "FastMCP framework implementation expert for Python MCP servers, decorators, and Pydantic integration",
       "auto_activate_patterns": [
         "**/fastmcp_*.py",
@@ -60,7 +53,7 @@
       ]
     },
     "mcp-security-auditor": {
-      "path": ".claude/agents/specialists/mcp-security-auditor.md",
+      "path": "subagents/mcp-security-auditor.md",
       "description": "Enterprise MCP security specialist for OAuth 2.1, input validation, and security boundary analysis",
       "auto_activate_patterns": [
         "**/auth*.py",
@@ -77,7 +70,7 @@
       ]
     },
     "mcp-performance-optimizer": {
-      "path": ".claude/agents/specialists/mcp-performance-optimizer.md",
+      "path": "subagents/mcp-performance-optimizer.md",
       "description": "MCP server performance optimization specialist for async patterns, connection pooling, and monitoring",
       "auto_activate_patterns": [
         "**/performance*.py",
@@ -95,7 +88,7 @@
       ]
     },
     "mcp-deployment-specialist": {
-      "path": ".claude/agents/specialists/mcp-deployment-specialist.md",
+      "path": "subagents/mcp-deployment-specialist.md",
       "description": "Enterprise MCP deployment and infrastructure specialist",
       "auto_activate_patterns": [
         "**/docker*.py",
@@ -115,7 +108,7 @@
       ]
     },
     "mcp-debugger": {
-      "path": ".claude/agents/specialists/mcp-debugger.md",
+      "path": "subagents/mcp-debugger.md",
       "description": "MCP troubleshooting and debugging specialist",
       "auto_activate_patterns": [
         "**/debug*.py",
