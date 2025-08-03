@@ -4,12 +4,16 @@ A comprehensive Claude Code sub-agent collection for Model Context Protocol (MCP
 
 ## 🎯 Multi-Agent Architecture
 
-This collection implements a **hub-and-spoke orchestration model** with:
+This collection implements a **hub-and-spoke orchestration model** with **intelligent model assignments**:
 
-- **Central Orchestrator**: `mcp-orchestrator` - Coordinates workflows with quality gates and specialist delegation
+### **🧠 Opus Agents (Complex Reasoning)**
+- **Central Orchestrator**: `mcp-orchestrator` - Workflow coordination, quality gate decisions, complex planning
+- **Security Auditor**: `mcp-security-auditor` - Critical security decisions, compliance analysis, threat modeling
+
+### **⚡ Sonnet Agents (Standard Complexity)**
+- **Context Manager**: `context-manager` - State coordination, session management, workflow continuity  
 - **Protocol Expert**: `mcp-protocol-expert` - JSON-RPC, transport layers, capability negotiation
 - **FastMCP Specialist**: `fastmcp-specialist` - Python implementation, decorators, Pydantic integration
-- **Security Auditor**: `mcp-security-auditor` - OAuth 2.1, input validation, enterprise security
 - **Performance Optimizer**: `mcp-performance-optimizer` - Async patterns, connection pooling, monitoring
 - **Deployment Specialist**: `mcp-deployment-specialist` - Container orchestration, infrastructure automation
 - **Debugger**: `mcp-debugger` - Troubleshooting, diagnostic analysis, systematic debugging
@@ -121,6 +125,7 @@ MCP-Developer-SubAgent/
 ```
 
 ### **Advanced Features**
+- **Intelligent Model Selection**: Complexity-based routing (Opus→Sonnet)
 - **Clean Structure**: All sub-agents organized in single `subagents/` directory
 - **Orchestrated Workflows**: Quality-gated development with systematic delegation
 - **Repository Verification**: Continuous cross-referencing with official sources
@@ -128,6 +133,25 @@ MCP-Developer-SubAgent/
 - **Working Examples**: Production-ready MCP server implementations
 - **Compliance Testing**: Automated protocol validation framework
 - **Performance Benchmarking**: Load testing and optimization tools
+
+## 🧠 Intelligent Model Selection Strategy
+
+The collection uses **complexity-based model routing** to optimize performance and cost:
+
+### **Opus Model (Complex Tasks)**
+- **Complex Reasoning**: Multi-step workflow planning, architectural decisions
+- **Critical Analysis**: Security threat modeling, compliance assessment
+- **Quality Orchestration**: Managing 7-gate quality workflows with dependencies
+- **Strategic Planning**: Enterprise deployment strategies, risk assessment
+
+### **Sonnet Model (Standard Tasks)**
+- **Technical Implementation**: Protocol analysis, FastMCP development, performance optimization
+- **Systematic Analysis**: Debugging workflows, infrastructure automation  
+- **Pattern Application**: Repository-verified implementation patterns
+- **State Management**: Context coordination, session tracking, workflow continuity
+- **Domain Expertise**: Specialized technical knowledge in specific areas
+
+This intelligent routing ensures **optimal resource utilization** while maintaining **high-quality outputs** across both complexity levels.
 
 ## 🎯 Academic-Level MCP Development Applications
 

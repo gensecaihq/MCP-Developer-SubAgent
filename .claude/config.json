@@ -1,8 +1,26 @@
 {
   "agents": {
+    "context-manager": {
+      "path": "subagents/context-manager.md",
+      "description": "Manages context and state across MCP development sessions, coordinates multi-agent workflows",
+      "model": "sonnet",
+      "auto_activate_patterns": [
+        "**/CONTEXT.md",
+        "**/context.json",
+        "**/session_*.md"
+      ],
+      "preferred_for": [
+        "context management",
+        "state preservation",
+        "multi-agent coordination",
+        "decision tracking",
+        "workflow continuity"
+      ]
+    },
     "mcp-orchestrator": {
       "path": "subagents/mcp-orchestrator.md",
       "description": "Central coordinator for MCP development workflows with quality gates and specialist delegation",
+      "model": "opus",
       "auto_activate_patterns": [
         "**/mcp_server.py",
         "**/fastmcp_*.py",
@@ -21,6 +39,7 @@
     "mcp-protocol-expert": {
       "path": "subagents/mcp-protocol-expert.md",
       "description": "Deep MCP protocol specification expertise for JSON-RPC, transport layers, and capability negotiation",
+      "model": "sonnet",
       "auto_activate_patterns": [
         "**/protocol*.py",
         "**/jsonrpc*.py",
@@ -38,6 +57,7 @@
     "fastmcp-specialist": {
       "path": "subagents/fastmcp-specialist.md",
       "description": "FastMCP framework implementation expert for Python MCP servers, decorators, and Pydantic integration",
+      "model": "sonnet",
       "auto_activate_patterns": [
         "**/fastmcp_*.py",
         "**/*fastmcp*.py",
@@ -55,6 +75,7 @@
     "mcp-security-auditor": {
       "path": "subagents/mcp-security-auditor.md",
       "description": "Enterprise MCP security specialist for OAuth 2.1, input validation, and security boundary analysis",
+      "model": "opus",
       "auto_activate_patterns": [
         "**/auth*.py",
         "**/security*.py",
@@ -72,6 +93,7 @@
     "mcp-performance-optimizer": {
       "path": "subagents/mcp-performance-optimizer.md",
       "description": "MCP server performance optimization specialist for async patterns, connection pooling, and monitoring",
+      "model": "sonnet",
       "auto_activate_patterns": [
         "**/performance*.py",
         "**/async*.py",
@@ -90,6 +112,7 @@
     "mcp-deployment-specialist": {
       "path": "subagents/mcp-deployment-specialist.md",
       "description": "Enterprise MCP deployment and infrastructure specialist",
+      "model": "sonnet",
       "auto_activate_patterns": [
         "**/docker*.py",
         "**/k8s*.py",
@@ -110,6 +133,7 @@
     "mcp-debugger": {
       "path": "subagents/mcp-debugger.md",
       "description": "MCP troubleshooting and debugging specialist",
+      "model": "sonnet",
       "auto_activate_patterns": [
         "**/debug*.py",
         "**/test*.py",
@@ -134,6 +158,25 @@
       "repository_verification": true,
       "quality_gates_enabled": true,
       "auto_activation_enabled": true
+    },
+    "model_selection": {
+      "strategy": "complexity_based",
+      "opus_agents": [
+        "mcp-orchestrator",
+        "mcp-security-auditor"
+      ],
+      "sonnet_agents": [
+        "context-manager",
+        "mcp-protocol-expert",
+        "fastmcp-specialist", 
+        "mcp-performance-optimizer",
+        "mcp-deployment-specialist",
+        "mcp-debugger"
+      ],
+      "rationale": {
+        "opus": "Complex reasoning: workflow orchestration, critical security decisions, enterprise architecture",
+        "sonnet": "Standard complexity: technical implementation, analysis, optimization, and coordination"
+      }
     },
     "knowledge_sources": {
       "fastmcp_repo": "https://github.com/jlowin/fastmcp",
