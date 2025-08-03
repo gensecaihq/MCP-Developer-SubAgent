@@ -103,6 +103,7 @@ The orchestrator enforces these quality gates:
 ```
 MCP-Developer-SubAgent/
 ├── README.md                                    # Complete overview and usage guide
+├── CONTRIBUTING.md                              # Comprehensive contribution guide
 ├── LICENSE                                      # MIT License
 ├── .claude/                                    # Claude Code configuration
 │   ├── config.json                            # Multi-agent orchestration setup
@@ -261,12 +262,24 @@ python examples/testing-framework/test_mcp_compliance.py --server-command "pytho
 
 ## 🤝 Contributing
 
-Contributions welcome for:
-- Additional specialist agents for emerging MCP patterns
-- Enhanced working examples and use cases
-- Improved testing frameworks and validation tools
-- Documentation and best practice guides
-- Performance optimizations and security enhancements
+**Join our mission to build the definitive MCP development ecosystem!**
+
+We welcome MCP developers, Claude Code users, and AI engineers to contribute to this collaborative project. Whether you're a protocol expert, security specialist, performance engineer, or documentation enthusiast—your expertise will help shape the future of intelligent MCP development.
+
+**🚀 Ready to contribute?** Check out our comprehensive [CONTRIBUTING.md](CONTRIBUTING.md) guide for:
+- **Contribution areas** by expertise (Protocol, FastMCP, Security, Performance, DevOps, Debugging)
+- **Quality standards** and testing requirements  
+- **Step-by-step process** from idea to merged PR
+- **Recognition program** and community benefits
+
+**Key contribution areas:**
+- 🔬 **Protocol Development**: Keep pace with evolving MCP specifications
+- 🏭 **Enterprise Patterns**: Share production-tested implementations
+- 🧪 **Testing & Validation**: Expand our compliance and performance testing
+- 📚 **Knowledge Sharing**: Document best practices and real-world experiences
+- 🛠️ **Tooling**: Create debugging utilities and development aids
+
+**Together, we're building the foundation for the next generation of AI-powered applications.**
 
 ## 📝 License
 
