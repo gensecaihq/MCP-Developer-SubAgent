@@ -103,7 +103,7 @@ MCP-Developer-SubAgent/
 ├── .claude/                                    # Claude Code configuration
 │   ├── config.json                            # Multi-agent orchestration setup
 │   └── settings.local.json                    # Repository access permissions
-├── subagents/                                 # All sub-agents in one place
+├── subagents/                                 # All specialist agents
 │   ├── mcp-orchestrator.md                    # Central workflow coordinator
 │   ├── mcp-protocol-expert.md                 # JSON-RPC, transport, capabilities
 │   ├── fastmcp-specialist.md                  # Python FastMCP implementation
@@ -114,8 +114,6 @@ MCP-Developer-SubAgent/
 ├── examples/                                   # Working MCP implementations
 │   ├── minimal-mcp-server/                    # Basic FastMCP patterns
 │   ├── enterprise-auth-server/                # OAuth 2.1 security patterns
-│   ├── performance-optimized/                 # High-performance implementations
-│   ├── multi-transport-server/                # stdio/HTTP/SSE support
 │   └── testing-framework/                     # Compliance validation tools
 └── docs/                                      # Documentation and guides
     ├── best-practices.md                     # Repository-verified patterns
@@ -221,8 +219,6 @@ python examples/testing-framework/test_mcp_compliance.py --server-command "pytho
 ### **Working Examples**
 - ✅ **Minimal MCP Server**: Basic FastMCP patterns with type safety
 - ✅ **Enterprise Auth Server**: OAuth 2.1 with Resource Indicators (RFC 8707)
-- ✅ **Performance Optimized**: Connection pooling, caching, monitoring
-- ✅ **Multi-Transport**: stdio, HTTP, SSE support
 - ✅ **Testing Framework**: Automated protocol compliance validation
 
 ### **Specialist Expertise**

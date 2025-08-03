@@ -134,6 +134,5 @@ Use this minimal server as a foundation for:
 5. Scaling to production environments
 
 For more advanced examples, see:
-- `../enterprise-auth-server/` - OAuth 2.1 authentication
-- `../performance-optimized/` - High-performance patterns
-- `../multi-transport-server/` - Multiple transport support
+- `../enterprise-auth-server/` - OAuth 2.1 authentication  
+- `../testing-framework/` - Protocol compliance validation
