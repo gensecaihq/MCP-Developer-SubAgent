@@ -18,6 +18,64 @@ The **MCP Developer multi-agent collection** provides:
 - **Authentication Debugging**: OAuth flows, JWT validation, and security boundary analysis
 - **Specialist Expertise**: Dedicated agents for protocol, security, performance, and deployment issues
 
+## Common Issues and Solutions
+
+### Repository Setup Issues
+
+**Problem**: "Python 3.8 < 3.10 (required)"
+```bash
+# Solution: Upgrade Python
+python3 --version  # Check current version
+# Install Python 3.10+ from https://www.python.org/downloads/
+```
+
+**Problem**: "ANTHROPIC_API_KEY not set"
+```bash
+# Solution: Set environment variable
+export ANTHROPIC_API_KEY=sk-ant-api03-YOUR-KEY-HERE
+# Or add to .env file
+```
+
+**Problem**: "Import errors when using SDK"
+```bash
+# Solution: Install dependencies
+pip install -e .
+# Then validate setup
+python3 claude_code_sdk/cli_simple.py validate-setup
+```
+
+**Problem**: "Sub-agents not activating in Claude Code"
+```bash
+# Solution: Check sub-agent files
+ls -la .claude/agents/  # Should show 8 .md files
+# Verify frontmatter format in each file
+```
+
+### FastMCP Server Issues
+
+**Problem**: "Server won't start"
+```bash
+# Solution: Check syntax and imports
+python3 -m py_compile examples/minimal-mcp-server/server.py
+# Verify FastMCP patterns are correct
+```
+
+**Problem**: "Tools not being recognized"
+```bash
+# Solution: Verify decorator usage
+grep "@mcp.tool" your_server.py
+# Ensure proper Pydantic models
+```
+
+### Security Hooks Issues
+
+**Problem**: "Hooks not blocking dangerous commands"
+```bash
+# Solution: Test hooks manually
+echo '{"toolType": "Bash", "command": "rm -rf /"}' | python3 .claude/hooks/pre_tool_validator.py
+# Should return status: "block"
+```
+
 ## Quick Enterprise Issues Reference
 
 ### OAuth 2.1 Authentication Failures

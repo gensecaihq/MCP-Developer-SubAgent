@@ -1,0 +1,20 @@
+# Core dependencies for Claude Code MCP SDK
+anthropic>=0.25.0
+python-dotenv>=1.0.0
+fastmcp>=0.1.0
+pydantic>=2.0.0
+click>=8.0.0
+aiofiles>=0.8.0
+structlog>=22.0.0
+black>=22.0.0
+
+# Authentication dependencies
+pyjwt>=2.0.0
+cryptography>=3.4.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-mock>=3.10.0
+mypy>=1.0.0
+coverage>=7.0.0

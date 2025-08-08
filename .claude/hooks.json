@@ -1,0 +1,94 @@
+{
+  "hooks": [
+    {
+      "event": "PreToolUse",
+      "description": "Validate MCP tool execution before processing",
+      "matchers": [
+        {
+          "toolType": "Write"
+        },
+        {
+          "toolType": "Edit"
+        }
+      ],
+      "command": "python .claude/hooks/pre_tool_validator.py",
+      "environmentVariables": {
+        "MCP_VALIDATION": "strict"
+      }
+    },
+    {
+      "event": "PostToolUse",
+      "description": "Quality gate validation after tool execution",
+      "matchers": [
+        {
+          "toolType": "Write",
+          "fileGlob": "**/*.py"
+        }
+      ],
+      "command": "python .claude/hooks/post_tool_quality_gate.py",
+      "environmentVariables": {
+        "QUALITY_GATES": "planning,protocol,security,implementation"
+      }
+    },
+    {
+      "event": "Notification",
+      "description": "Log MCP development workflow events",
+      "matchers": [
+        {
+          "type": "workflow_started"
+        },
+        {
+          "type": "phase_completed"
+        }
+      ],
+      "command": "python .claude/hooks/notification_handler.py"
+    },
+    {
+      "event": "Stop",
+      "description": "Cleanup and save workflow state on stop",
+      "command": "python .claude/hooks/stop_handler.py",
+      "environmentVariables": {
+        "SAVE_STATE": "true"
+      }
+    },
+    {
+      "event": "SubagentStop",
+      "description": "Handle sub-agent stop events",
+      "matchers": [
+        {
+          "agentName": "mcp-orchestrator"
+        },
+        {
+          "agentName": "fastmcp-specialist"
+        }
+      ],
+      "command": "python .claude/hooks/subagent_stop_handler.py"
+    }
+  ],
+  "security": {
+    "allowedPaths": [
+      ".claude/**",
+      "**/*.py",
+      "**/*.md",
+      "**/*.json"
+    ],
+    "deniedPaths": [
+      "**/secrets/**",
+      "**/.env",
+      "**/credentials.json"
+    ],
+    "maxCommandTimeout": 30000,
+    "environmentVariableWhitelist": [
+      "ANTHROPIC_API_KEY",
+      "MCP_*",
+      "QUALITY_*",
+      "SAVE_STATE"
+    ]
+  },
+  "logging": {
+    "level": "INFO",
+    "destination": ".claude/logs/hooks.log",
+    "rotateSize": "10MB",
+    "retainCount": 5
+  }
+}
