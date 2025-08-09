@@ -1,0 +1,255 @@
+{
+  "activation_rules": {
+    "content_based_activation": {
+      "description": "Activate agents based on code content, not just file names",
+      "rules": [
+        {
+          "pattern": "@mcp\\.(tool|resource|prompt)",
+          "agents": ["fastmcp-specialist", "mcp-orchestrator"],
+          "priority": "high",
+          "reason": "FastMCP decorator detected"
+        },
+        {
+          "pattern": "class.*BaseModel|from pydantic import",
+          "agents": ["fastmcp-specialist"],
+          "priority": "medium",
+          "reason": "Pydantic models detected"
+        },
+        {
+          "pattern": "OAuth|JWT|Bearer|authenticate",
+          "agents": ["mcp-security-auditor"],
+          "priority": "high",
+          "reason": "Authentication patterns detected"
+        },
+        {
+          "pattern": "async def|await |asyncio",
+          "agents": ["mcp-performance-optimizer"],
+          "priority": "medium",
+          "reason": "Async patterns detected"
+        },
+        {
+          "pattern": "jsonrpc|JSON-RPC|method.*params.*id",
+          "agents": ["mcp-protocol-expert"],
+          "priority": "high",
+          "reason": "JSON-RPC protocol detected"
+        },
+        {
+          "pattern": "docker|kubernetes|k8s|container",
+          "agents": ["mcp-deployment-specialist"],
+          "priority": "medium",
+          "reason": "Deployment configuration detected"
+        },
+        {
+          "pattern": "error|exception|traceback|debug",
+          "agents": ["mcp-debugger"],
+          "priority": "low",
+          "reason": "Error handling or debugging needed"
+        }
+      ]
+    },
+    
+    "context_aware_activation": {
+      "description": "Activate agents based on project state and context",
+      "rules": [
+        {
+          "condition": "new_project",
+          "agents": ["mcp-orchestrator", "context-manager"],
+          "sequence": "sequential",
+          "reason": "Initialize project with proper coordination"
+        },
+        {
+          "condition": "multiple_tools_defined",
+          "agents": ["mcp-orchestrator", "mcp-performance-optimizer"],
+          "sequence": "parallel",
+          "reason": "Complex server needs coordination and optimization"
+        },
+        {
+          "condition": "external_api_calls",
+          "agents": ["mcp-security-auditor", "mcp-performance-optimizer"],
+          "sequence": "sequential",
+          "reason": "External calls need security and performance review"
+        },
+        {
+          "condition": "production_ready",
+          "agents": ["mcp-deployment-specialist", "mcp-security-auditor"],
+          "sequence": "parallel",
+          "reason": "Production deployment needs security and infrastructure"
+        },
+        {
+          "condition": "performance_issues",
+          "agents": ["mcp-debugger", "mcp-performance-optimizer"],
+          "sequence": "sequential",
+          "reason": "Debug first, then optimize"
+        }
+      ]
+    },
+    
+    "workflow_based_activation": {
+      "description": "Activate agents based on development workflow phase",
+      "phases": [
+        {
+          "phase": "planning",
+          "agents": ["mcp-orchestrator", "context-manager"],
+          "auto_activate": true,
+          "triggers": ["requirements.txt", "README.md", "project init"]
+        },
+        {
+          "phase": "protocol_design",
+          "agents": ["mcp-protocol-expert", "mcp-orchestrator"],
+          "auto_activate": true,
+          "triggers": ["transport selection", "capability definition"]
+        },
+        {
+          "phase": "implementation",
+          "agents": ["fastmcp-specialist", "context-manager"],
+          "auto_activate": true,
+          "triggers": ["server.py", "tools implementation"]
+        },
+        {
+          "phase": "security_review",
+          "agents": ["mcp-security-auditor"],
+          "auto_activate": true,
+          "triggers": ["auth implementation", "user data handling"]
+        },
+        {
+          "phase": "optimization",
+          "agents": ["mcp-performance-optimizer"],
+          "auto_activate": true,
+          "triggers": ["performance testing", "load testing"]
+        },
+        {
+          "phase": "deployment",
+          "agents": ["mcp-deployment-specialist"],
+          "auto_activate": true,
+          "triggers": ["Dockerfile", "k8s manifests", "CI/CD setup"]
+        },
+        {
+          "phase": "troubleshooting",
+          "agents": ["mcp-debugger", "context-manager"],
+          "auto_activate": true,
+          "triggers": ["error logs", "test failures", "bug reports"]
+        }
+      ]
+    },
+    
+    "intelligent_delegation": {
+      "description": "Smart delegation between agents based on expertise overlap",
+      "delegation_chains": [
+        {
+          "from": "mcp-orchestrator",
+          "to": ["fastmcp-specialist", "mcp-protocol-expert"],
+          "condition": "implementation_needed",
+          "handoff_data": ["requirements", "architecture", "quality_gates"]
+        },
+        {
+          "from": "fastmcp-specialist",
+          "to": ["mcp-security-auditor"],
+          "condition": "authentication_detected",
+          "handoff_data": ["code", "endpoints", "data_flow"]
+        },
+        {
+          "from": "mcp-security-auditor",
+          "to": ["mcp-performance-optimizer"],
+          "condition": "security_validated",
+          "handoff_data": ["security_boundaries", "rate_limits", "auth_flow"]
+        },
+        {
+          "from": "mcp-performance-optimizer",
+          "to": ["mcp-deployment-specialist"],
+          "condition": "performance_optimized",
+          "handoff_data": ["resource_requirements", "scaling_needs", "monitoring"]
+        },
+        {
+          "from": "mcp-debugger",
+          "to": ["mcp-performance-optimizer", "mcp-security-auditor"],
+          "condition": "root_cause_identified",
+          "handoff_data": ["issue_type", "affected_components", "recommendations"]
+        }
+      ]
+    },
+    
+    "multi_agent_collaboration": {
+      "description": "Define when multiple agents should work together",
+      "collaboration_patterns": [
+        {
+          "name": "full_development_cycle",
+          "agents": ["mcp-orchestrator", "fastmcp-specialist", "mcp-security-auditor", "mcp-deployment-specialist"],
+          "coordination": "orchestrator_led",
+          "trigger": "new MCP server development"
+        },
+        {
+          "name": "security_hardening",
+          "agents": ["mcp-security-auditor", "mcp-performance-optimizer", "mcp-debugger"],
+          "coordination": "security_led",
+          "trigger": "enterprise security requirements"
+        },
+        {
+          "name": "performance_tuning",
+          "agents": ["mcp-performance-optimizer", "mcp-debugger", "fastmcp-specialist"],
+          "coordination": "performance_led",
+          "trigger": "performance SLA requirements"
+        },
+        {
+          "name": "production_deployment",
+          "agents": ["mcp-deployment-specialist", "mcp-security-auditor", "mcp-performance-optimizer"],
+          "coordination": "deployment_led",
+          "trigger": "production readiness"
+        }
+      ]
+    },
+    
+    "priority_resolution": {
+      "description": "Resolve conflicts when multiple agents could activate",
+      "rules": [
+        {
+          "conflict": "multiple_agents_applicable",
+          "resolution": "use_priority_score",
+          "factors": ["specificity", "phase", "user_preference", "recent_activity"]
+        },
+        {
+          "conflict": "resource_contention",
+          "resolution": "queue_by_importance",
+          "factors": ["security > performance > deployment > debugging"]
+        },
+        {
+          "conflict": "circular_delegation",
+          "resolution": "orchestrator_intervention",
+          "factors": ["break_cycle", "prioritize_completion"]
+        }
+      ]
+    },
+    
+    "learning_patterns": {
+      "description": "Patterns that improve over time based on usage",
+      "adaptive_rules": [
+        {
+          "pattern": "frequent_security_issues",
+          "adaptation": "increase_security_auditor_priority",
+          "threshold": "3_issues_per_project"
+        },
+        {
+          "pattern": "performance_bottlenecks",
+          "adaptation": "early_performance_optimizer_activation",
+          "threshold": "response_time_>_500ms"
+        },
+        {
+          "pattern": "deployment_failures",
+          "adaptation": "mandatory_deployment_specialist_review",
+          "threshold": "2_failed_deployments"
+        }
+      ]
+    }
+  },
+  
+  "activation_settings": {
+    "mode": "intelligent",
+    "fallback": "pattern_based",
+    "learning_enabled": true,
+    "multi_agent_enabled": true,
+    "max_concurrent_agents": 3,
+    "delegation_timeout": 300,
+    "context_window": 2000,
+    "priority_levels": ["critical", "high", "medium", "low"],
+    "activation_threshold": 0.7
+  }
+}
