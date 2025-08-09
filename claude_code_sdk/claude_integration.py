@@ -7,12 +7,29 @@ import asyncio
 import json
 import logging
 import os
+import sys
 from typing import Dict, Any, List, Optional, AsyncGenerator
 from pathlib import Path
 from dataclasses import dataclass
-from dotenv import load_dotenv
-from anthropic import AsyncAnthropic
-from anthropic.types import Message, MessageParam
+
+# Optional imports with fallbacks
+try:
+    from dotenv import load_dotenv
+    HAS_DOTENV = True
+except ImportError:
+    HAS_DOTENV = False
+    def load_dotenv():
+        pass
+
+try:
+    from anthropic import AsyncAnthropic
+    from anthropic.types import Message, MessageParam
+    HAS_ANTHROPIC = True
+except ImportError:
+    HAS_ANTHROPIC = False
+    AsyncAnthropic = None
+    Message = None
+    MessageParam = Dict[str, Any]  # Fallback type
 
 # Load environment variables
 load_dotenv()
@@ -59,11 +76,20 @@ class ClaudeCodeAgent:
     """
     
     def __init__(self, config: AgentConfig, api_key: Optional[str] = None):
+        if not HAS_ANTHROPIC:
+            raise ImportError(
+                "Anthropic SDK not available. Install with: pip install anthropic\n"
+                "Or install full dependencies: pip install -e .[full]"
+            )
+        
         self.config = config
         # Use environment variable if no API key provided
         api_key = api_key or os.getenv('ANTHROPIC_API_KEY')
         if not api_key:
-            raise ValueError("API key required. Set ANTHROPIC_API_KEY environment variable or pass api_key parameter.")
+            raise ValueError(
+                "API key required. Set ANTHROPIC_API_KEY environment variable or pass api_key parameter.\n"
+                "Get your API key from: https://console.anthropic.com/"
+            )
         self.client = AsyncAnthropic(api_key=api_key)
         self.context: Optional[ConversationContext] = None
         self._request_count = 0

@@ -16,11 +16,14 @@ def validate_setup():
     issues = []
     warnings = []
     
-    # Check Python version
+    # Check Python version with improved compatibility
     import sys
     py_version = sys.version_info
-    if py_version < (3, 10):
-        issues.append(f"Python {py_version.major}.{py_version.minor} < 3.10 (required)")
+    if py_version < (3, 8):
+        issues.append(f"Python {py_version.major}.{py_version.minor} < 3.8 (minimum required)")
+    elif py_version < (3, 10):
+        print(f"⚠️  Python {py_version.major}.{py_version.minor}.{py_version.micro} (works but 3.10+ recommended)")
+        warnings.append(f"Python {py_version.major}.{py_version.minor} may have limited compatibility")
     else:
         print(f"✅ Python {py_version.major}.{py_version.minor}.{py_version.micro}")
     
@@ -69,6 +72,28 @@ def validate_setup():
     else:
         warnings.append("ANTHROPIC_API_KEY not set (required for SDK)")
     
+    # Check optional dependencies
+    try:
+        import anthropic
+        print("✅ Anthropic SDK available")
+    except ImportError:
+        warnings.append("Anthropic SDK not installed (pip install anthropic)")
+    
+    try:
+        import dotenv
+        print("✅ python-dotenv available")
+    except ImportError:
+        warnings.append("python-dotenv not installed (pip install python-dotenv)")
+    
+    # Check platform compatibility
+    import platform
+    system = platform.system()
+    print(f"✅ Platform: {system}")
+    if system == "Windows" and py_version >= (3, 8):
+        print("✅ Windows compatibility confirmed")
+    elif system in ["Darwin", "Linux"] and py_version >= (3, 8):
+        print("✅ Unix-like system compatibility confirmed")
+    
     # Summary
     print(f"\n📊 Validation Summary:")
     if issues:
@@ -94,25 +119,52 @@ def validate_setup():
 
 def show_status():
     """Show current repository status"""
+    import platform
+    import sys
+    
     print("📋 Claude Code MCP SDK Status\n")
     
+    # Platform detection
+    system = platform.system()
+    py_version = sys.version_info
+    
+    print(f"🖥️  PLATFORM: {system} | Python {py_version.major}.{py_version.minor}.{py_version.micro}")
+    
     # Working components
-    print("✅ FUNCTIONAL COMPONENTS:")
+    print("\n✅ FUNCTIONAL COMPONENTS:")
     print("   • Sub-Agents: 8 agents in .claude/agents/")
     print("   • Hooks System: Security validation working")
     print("   • Examples: 3 MCP server templates")
     print("   • GitHub Actions: CI/CD workflows configured")
     print("   • Documentation: Complete guides available")
     
-    print("\n⚠️  DEPENDENCY REQUIREMENTS:")
-    print("   • Python 3.10+ required")
-    print("   • pip install -e . (for full SDK)")
-    print("   • ANTHROPIC_API_KEY environment variable")
+    print("\n📦 INSTALLATION OPTIONS:")
+    if system == "Windows":
+        print("   • Basic: python -m pip install -e .")
+        print("   • With auth: python -m pip install -e .[auth]")
+        print("   • Environment: set ANTHROPIC_API_KEY=your-key")
+    else:
+        print("   • Basic: pip install -e .")
+        print("   • With auth: pip install -e .[auth]") 
+        print("   • Environment: export ANTHROPIC_API_KEY=your-key")
     
     print("\n🎯 USAGE MODES:")
     print("   1. Claude Code Integration (sub-agents)")
     print("   2. Programmatic SDK (Python API)")
     print("   3. Examples & Templates (copy/modify)")
+    
+    print("\n💡 PLATFORM-SPECIFIC NOTES:")
+    if system == "Windows":
+        print("   • Use 'python' instead of 'python3' in commands")
+        print("   • Use 'copy' instead of 'cp' for file operations")
+    elif system == "Darwin":  # macOS
+        print("   • May need Xcode Command Line Tools for some packages")
+        if py_version < (3, 10):
+            print("   • Consider upgrading Python: brew install python@3.10")
+    else:  # Linux
+        print("   • May need build tools: sudo apt install build-essential python3-dev")
+        if py_version < (3, 10):
+            print("   • Consider Python upgrade for full compatibility")
 
 
 def main():

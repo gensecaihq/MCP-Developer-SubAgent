@@ -1,6 +1,6 @@
 # Claude Code MCP Developer SDK
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Compatible](https://img.shields.io/badge/Claude%20Code-Compatible-green.svg)](https://docs.anthropic.com/en/docs/claude-code)
 [![MCP Protocol](https://img.shields.io/badge/MCP-Protocol-purple.svg)](https://modelcontextprotocol.io)
@@ -24,34 +24,48 @@ A Claude Code framework for Model Context Protocol (MCP) development, featuring 
 
 ## 📋 Requirements
 
-- Python 3.10 or higher
+- Python 3.8 or higher (3.10+ recommended)
 - Claude Code (for sub-agent functionality)
 - Anthropic API key (for programmatic SDK features)
-- Dependencies installation: `pip install -e .`
+- Cross-platform installation supported
 
 ## 🛠️ Installation
 
-### Quick Start
+### Quick Start (Cross-Platform)
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 
-# Validate setup (works without dependencies)
+# Check platform compatibility  
 python3 claude_code_sdk/cli_simple.py validate-setup
 
-# For full SDK functionality:
-pip install -e .
-cp .env.example .env
-# Edit .env and add your ANTHROPIC_API_KEY
+# Basic installation (works on all platforms)
+pip install -e .        # macOS/Linux
+python -m pip install -e .   # Windows
+
+# Optional: Add authentication support
+pip install -e .[auth]  # If you need JWT/crypto features
 ```
+
+**📖 For detailed platform-specific instructions, see [INSTALL.md](INSTALL.md)**
 
 ### Environment Setup
 
+**Windows (Command Prompt)**:
+```batch
+set ANTHROPIC_API_KEY=sk-ant-your-key-here
+```
+
+**Windows (PowerShell)**:
+```powershell
+$env:ANTHROPIC_API_KEY="sk-ant-your-key-here"
+```
+
+**macOS/Linux**:
 ```bash
-# Required for SDK functionality
-export ANTHROPIC_API_KEY=sk-ant-api03-YOUR-KEY-HERE
+export ANTHROPIC_API_KEY=sk-ant-your-key-here
 ```
 
 ## 🎯 Usage
@@ -249,14 +263,28 @@ mypy --ignore-missing-imports .
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+We welcome contributions! Key areas where contributions are valuable:
 
-### Areas for Contribution
-- Additional specialist agents
-- Enhanced quality gates
-- Performance optimizations
-- Documentation improvements
-- Example implementations
+### Priority Areas
+- **Additional Specialist Agents**: Create new agents for specific MCP development domains
+- **Enhanced Quality Gates**: Improve validation and testing frameworks
+- **Performance Optimizations**: Optimize async patterns and resource usage
+- **Documentation**: Improve guides, examples, and troubleshooting
+- **Example Implementations**: Real-world MCP server examples
+
+### Contributing Process
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes following the existing patterns
+4. Test with `python3 claude_code_sdk/cli_simple.py validate-setup`
+5. Submit a pull request with detailed description
+
+### Development Setup
+```bash
+pip install -e .[dev]  # Install with development dependencies
+pytest                 # Run tests
+black .               # Format code
+```
 
 ## 📝 License
 
@@ -264,15 +292,16 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- [Anthropic](https://anthropic.com) - Claude and Claude Code framework
-- [MCP Protocol Team](https://modelcontextprotocol.io) - Model Context Protocol specification
-- [FastMCP](https://gofastmcp.com) - Python MCP framework
+- **[Anthropic](https://anthropic.com)** - Claude AI and Claude Code framework
+- **MCP Protocol Community** - Model Context Protocol specification and ecosystem
+- **FastMCP Contributors** - Python MCP framework development
 
-## 🔗 Links
+## 🔗 Essential Links
 
-- **Claude Code**: [https://docs.anthropic.com/en/docs/claude-code](https://docs.anthropic.com/en/docs/claude-code)
-- **MCP Protocol**: [https://modelcontextprotocol.io](https://modelcontextprotocol.io)
-- **FastMCP**: [https://gofastmcp.com](https://gofastmcp.com)
+- **[Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)** - Official Claude Code guide
+- **[Model Context Protocol](https://spec.modelcontextprotocol.io)** - MCP specification
+- **[Python Package Index](https://pypi.org)** - For dependency installation
+- **[GitHub Issues](https://github.com/yourusername/MCP-Developer-SubAgent/issues)** - Report bugs or request features
 
 ---
 

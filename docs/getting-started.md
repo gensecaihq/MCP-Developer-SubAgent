@@ -9,7 +9,7 @@ The Claude Code MCP Developer SDK provides a dual-mode architecture for developi
 
 ## Prerequisites
 
-- Python 3.10 or higher
+- Python 3.8 or higher (3.10+ recommended)
 - Git
 - Anthropic API key (for programmatic SDK)
 - Claude Code (for sub-agent functionality)
@@ -19,7 +19,7 @@ The Claude Code MCP Developer SDK provides a dual-mode architecture for developi
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 ```
 
@@ -42,11 +42,15 @@ pip install -e .
 ### 3. Configure Environment
 
 ```bash
-# Copy environment template
-cp .env.example .env
+# Set environment variable (required for programmatic SDK)
+# Windows Command Prompt:
+set ANTHROPIC_API_KEY=sk-ant-your-key-here
 
-# Edit .env and add your API key
-# Required: ANTHROPIC_API_KEY=sk-ant-api03-YOUR-KEY-HERE
+# Windows PowerShell:
+$env:ANTHROPIC_API_KEY="sk-ant-your-key-here"  
+
+# macOS/Linux:
+export ANTHROPIC_API_KEY=sk-ant-your-key-here
 ```
 
 ## Quick Start

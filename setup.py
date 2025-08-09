@@ -40,6 +40,8 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
@@ -47,7 +49,7 @@ setup(
         "Topic :: Software Development :: Code Generators",
         "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
     ],
-    python_requires=">=3.10",
+    python_requires=">=3.8",
     install_requires=requirements,
     extras_require={
         "dev": [
@@ -61,8 +63,16 @@ setup(
         ],
         "auth": [
             "pyjwt>=2.0.0",
-            "aiohttp>=3.8.0",
             "cryptography>=3.4.0"
+        ],
+        "mcp": [
+            "fastmcp>=0.1.0"
+        ],
+        "full": [
+            "pyjwt>=2.0.0",
+            "cryptography>=3.4.0",
+            "structlog>=22.0.0",
+            "black>=22.0.0"
         ],
         "monitoring": [
             "opentelemetry-api>=1.15.0",
