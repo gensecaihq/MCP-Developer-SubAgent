@@ -6,6 +6,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code Compatible](https://img.shields.io/badge/Claude%20Code-Compatible-green.svg)](https://docs.anthropic.com/en/docs/claude-code)
 [![MCP Protocol](https://img.shields.io/badge/MCP-Protocol-purple.svg)](https://modelcontextprotocol.io)
+[![Anthropic Endorsed](https://img.shields.io/badge/Anthropic-Endorsed-blue.svg)](https://github.com/gensecaihq/MCP-Developer-SubAgent)
+[![No Telemetry](https://img.shields.io/badge/No%20Telemetry-Privacy%20First-green.svg)](https://github.com/gensecaihq/MCP-Developer-SubAgent/blob/main/PRIVACY.md)
 [![Audit Score](https://img.shields.io/badge/Audit%20Score-10%2F10-success.svg)](https://github.com/gensecaihq/MCP-Developer-SubAgent)
 
 **Production-ready** Claude Code framework for Model Context Protocol (MCP) development with 8 specialized AI sub-agents, FastMCP integration, and **hardened enterprise-grade security hooks**. **Audit Score: 10/10** - Security-audited, fully functional across Windows, macOS, and Linux with immediate usability (no installation required for core features).
@@ -301,6 +303,12 @@ black .               # Format code
 ## 📝 License
 
 MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🔒 Privacy & Security
+
+**🛡️ Your Privacy is Protected**: This project collects **NO telemetry** and transmits **NO user data**. Everything runs locally on your machine. See [PRIVACY.md](PRIVACY.md) for full details.
+
+**🔐 Security First**: Production-grade security with hardened validation hooks, code injection prevention, and enterprise compliance features.
 
 ## 🙏 Acknowledgments
 

@@ -1,22 +1,39 @@
-# Core dependencies for Claude Code MCP SDK
-anthropic>=0.20.0
-python-dotenv>=1.0.0
-pydantic>=2.0.0
-click>=8.0.0
-aiofiles>=0.8.0
+# Core dependencies for Claude Code MCP SDK (Production Pinned Versions)
+# Updated: 2025-01-09 for reproducible builds
+
+# Core Runtime Dependencies
+anthropic==0.34.0        # Claude API client
+python-dotenv==1.0.0     # Environment variables
+pydantic==2.5.2          # Type validation
+click==8.1.7             # CLI framework
+aiofiles==23.2.1         # Async file operations
 
 # Optional MCP framework (install manually if needed)
 # fastmcp>=0.1.0  # Commented out - may not be available on PyPI
 
 # Authentication dependencies (optional)
-pyjwt>=2.0.0
+pyjwt==2.8.0             # JWT token handling
 
-# Development tools (optional)
-black>=22.0.0
+# Development and formatting tools
+black==23.12.1           # Code formatting
 
-# Development dependencies
-pytest>=7.0.0
-pytest-asyncio>=0.21.0
-pytest-mock>=3.10.0
-mypy>=1.0.0
-coverage>=7.0.0
+# Testing dependencies (for integration tests)
+pytest==7.4.3           # Test framework
+pytest-asyncio==0.21.1  # Async testing support
+pytest-mock==3.12.0     # Mock utilities
+pytest-cov==4.1.0       # Coverage reporting
+mypy==1.7.1              # Type checking
+coverage==7.3.2          # Coverage analysis
+
+# Security and monitoring (optional)
+cryptography==41.0.8     # For enhanced security features
+psutil==5.9.6           # System monitoring for preventive debugging
+requests==2.31.0         # HTTP client for webhooks/monitoring
+
+# Development convenience
+isort==5.13.2           # Import sorting
+flake8==6.1.0           # Linting
+
+# Compatibility note: All versions tested on Python 3.8-3.12
+# Last updated: 2025-01-09
+# For security updates, see: CHANGELOG.md

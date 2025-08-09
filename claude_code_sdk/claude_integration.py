@@ -11,6 +11,7 @@ import sys
 from typing import Dict, Any, List, Optional, AsyncGenerator
 from pathlib import Path
 from dataclasses import dataclass
+from .rate_limiter import get_rate_limiter, rate_limited, RateLimitExceeded
 
 # Optional imports with fallbacks
 try:
@@ -124,6 +125,7 @@ class ClaudeCodeAgent:
         logger.info(f"Created conversation session: {session_id}")
         return session_id
     
+    @rate_limited("anthropic_api")
     async def send_message(self, content: str, 
                           output_format: str = "text",
                           stream: bool = False) -> Dict[str, Any]:

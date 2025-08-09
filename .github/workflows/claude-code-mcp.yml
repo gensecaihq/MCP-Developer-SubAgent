@@ -36,10 +36,45 @@ permissions:
   pull-requests: write
 
 jobs:
+  performance-benchmarks:
+    name: Performance Benchmarks
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest-benchmark psutil memory_profiler
+      
+      - name: Run Performance Benchmarks
+        run: |
+          python -m pytest tests/test_performance.py --benchmark-json=benchmark.json -v
+      
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Python Performance Benchmarks
+          tool: 'pytest'
+          output-file-path: benchmark.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          comment-on-alert: true
+          alert-threshold: '150%'
+
   mcp-quality-gates:
     name: MCP Quality Gates Validation
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
+    needs: performance-benchmarks
     
     steps:
       - uses: actions/checkout@v4

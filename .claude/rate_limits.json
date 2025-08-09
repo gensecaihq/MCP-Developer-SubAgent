@@ -1,0 +1,32 @@
+{
+  "anthropic_api": {
+    "max_requests": 50,
+    "window_seconds": 60,
+    "burst_limit": 5,
+    "cooldown_seconds": 120
+  },
+  "global": {
+    "max_requests": 100,
+    "window_seconds": 60,
+    "burst_limit": 15,
+    "cooldown_seconds": 180
+  },
+  "webhook": {
+    "max_requests": 20,
+    "window_seconds": 60,
+    "burst_limit": 3,
+    "cooldown_seconds": 60
+  },
+  "fastmcp_api": {
+    "max_requests": 80,
+    "window_seconds": 60,
+    "burst_limit": 8,
+    "cooldown_seconds": 90
+  },
+  "validation": {
+    "max_requests": 200,
+    "window_seconds": 60,
+    "burst_limit": 20,
+    "cooldown_seconds": 30
+  }
+}
