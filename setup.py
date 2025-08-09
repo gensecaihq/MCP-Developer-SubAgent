@@ -27,8 +27,8 @@ else:
 setup(
     name="claude-mcp-sdk",
     version="1.0.0",
-    author="MCP Development Team",
-    author_email="dev@mcp.dev",
+    author="GenSecAI.org",
+    author_email="opensource@gensecai.org",
     description="Claude Code SDK for programmatic MCP development with multi-agent orchestration",
     long_description=long_description,
     long_description_content_type="text/markdown",

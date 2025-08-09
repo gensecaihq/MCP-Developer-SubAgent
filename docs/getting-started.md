@@ -19,7 +19,7 @@ The Claude Code MCP Developer SDK provides a dual-mode architecture for developi
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
+git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 ```
 

@@ -35,7 +35,7 @@ A Claude Code framework for Model Context Protocol (MCP) development, featuring 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
+git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 
 # Check platform compatibility  
@@ -292,6 +292,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
+- **[GenSecAI.org](https://gensecai.org)** - Securing the GenAI Future through advanced AI security research
 - **[Anthropic](https://anthropic.com)** - Claude AI and Claude Code framework
 - **MCP Protocol Community** - Model Context Protocol specification and ecosystem
 - **FastMCP Contributors** - Python MCP framework development
@@ -301,7 +302,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - **[Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)** - Official Claude Code guide
 - **[Model Context Protocol](https://spec.modelcontextprotocol.io)** - MCP specification
 - **[Python Package Index](https://pypi.org)** - For dependency installation
-- **[GitHub Issues](https://github.com/yourusername/MCP-Developer-SubAgent/issues)** - Report bugs or request features
+- **[GitHub Issues](https://github.com/gensecaihq/MCP-Developer-SubAgent/issues)** - Report bugs or request features
 
 ---
 

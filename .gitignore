@@ -72,3 +72,7 @@ yarn-error.log*
 research/
 drafts/
 *.draft
+
+# Landing page (managed separately)
+index.html
+index.htm

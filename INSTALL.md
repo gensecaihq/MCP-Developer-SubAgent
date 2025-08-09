@@ -14,7 +14,7 @@ python3 --version   # macOS/Linux
 #### Windows (Command Prompt/PowerShell)
 ```batch
 # Clone repository
-git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
+git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 
 # Install basic dependencies (no build tools needed)
@@ -32,7 +32,7 @@ python claude_code_sdk\cli_simple.py validate-setup
 #### macOS/Linux
 ```bash
 # Clone repository  
-git clone https://github.com/yourusername/MCP-Developer-SubAgent.git
+git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 
 # Install basic dependencies
