@@ -5,8 +5,8 @@
 ### 1. Check Compatibility (✅ Cross-Platform Verified)
 ```bash
 # ✅ TESTED: Python version compatibility (minimum 3.8, recommended 3.10+)
-python --version    # Windows/some Linux  
-python3 --version   # macOS/Linux - ✅ Verified on macOS arm64, Linux x64
+python3 --version   # Recommended - works on macOS/Linux/Windows
+python --version    # Alternative - Windows/some Linux systems
 
 # ✅ PRODUCTION-TESTED: Immediate functionality check (no installation needed)
 python3 claude_code_sdk/cli_simple.py validate-setup
@@ -21,7 +21,8 @@ git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 
 # ✅ VERIFIED: Install basic dependencies (all 12 available on PyPI)
-python -m pip install -e .
+python3 -m pip install -e .    # Recommended
+python -m pip install -e .     # Alternative if python3 not available
 
 # Set environment variable
 set ANTHROPIC_API_KEY=sk-ant-your-key-here
@@ -38,8 +39,9 @@ python claude_code_sdk\cli_simple.py validate-setup
 git clone https://github.com/gensecaihq/MCP-Developer-SubAgent.git
 cd MCP-Developer-SubAgent
 
-# Install basic dependencies
-pip install -e .
+# Install basic dependencies  
+python3 -m pip install -e .    # Recommended for consistency
+pip install -e .               # Alternative
 
 # Set environment variable
 export ANTHROPIC_API_KEY=sk-ant-your-key-here
@@ -51,8 +53,9 @@ python3 claude_code_sdk/cli_simple.py validate-setup
 ## 🔧 Installation Options
 
 ### Basic Installation (Recommended)
-- **Windows**: `python -m pip install -e .`
-- **macOS/Linux**: `pip install -e .`
+- **All Platforms**: `python3 -m pip install -e .` (recommended)
+- **Windows Alternative**: `python -m pip install -e .`  
+- **macOS/Linux Alternative**: `pip install -e .`
 
 Includes: Core functionality, sub-agents, examples, CLI tools
 

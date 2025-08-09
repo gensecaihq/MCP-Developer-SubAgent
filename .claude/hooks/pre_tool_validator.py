@@ -77,22 +77,46 @@ def validate_mcp_tool(tool_data: Dict[str, Any]) -> Dict[str, Any]:
                         if import_stmt not in content:
                             result["warnings"].append(f"Missing import: {import_stmt}")
                 
-                # Check for security issues
+                # Check for security issues - enhanced blocking
                 dangerous_patterns = [
                     "eval(",
                     "exec(",
                     "os.system(",
+                    "__import__",
+                    "subprocess.call(",
+                    "subprocess.run(",
+                    "os.popen(",
+                    "commands.getoutput(",
+                    "getattr("
+                ]
+                
+                # Critical patterns that should be blocked, not just warned
+                critical_patterns = [
+                    "os.system(",
+                    "eval(",
+                    "exec(",
                     "__import__"
                 ]
                 
                 for pattern in dangerous_patterns:
                     if pattern in content:
-                        result["status"] = "warn"
-                        result["warnings"].append(f"Security concern: {pattern}")
+                        if pattern in critical_patterns:
+                            result["status"] = "block"
+                            result["messages"].append(f"Dangerous code pattern blocked: {pattern}")
+                            return result
+                        else:
+                            result["status"] = "warn"
+                            result["warnings"].append(f"Security concern: {pattern}")
     
     # Validate command execution
     elif tool_type == "Bash":
         command = tool_data.get("command", "")
+        
+        # Block empty commands - security fix
+        if not command or command.strip() == "":
+            result["status"] = "block"
+            result["messages"].append("Empty bash commands not allowed")
+            return result
         
         # Block dangerous commands
         dangerous_commands = [
