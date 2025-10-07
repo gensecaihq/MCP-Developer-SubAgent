@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/gensecaihq-mcp-developer-subagent-badge.png)](https://mseep.ai/app/gensecaihq-mcp-developer-subagent)
+
 # Claude Code MCP Developer SDK
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
